@@ -1,9 +1,7 @@
 import json
 
-# Initialize the task list
 tasks = []
 
-# Task Management Functions
 def add_task(title, description):
     tasks.append({"title": title, "description": description, "completed": False})
 
@@ -25,7 +23,6 @@ def display_tasks():
         status = "✓" if task["completed"] else "✗"
         print(f"{i + 1}. {task['title']} [{status}] - {task['description']}")
 
-# File Handling Functions
 def save_tasks(filename):
     with open(filename, 'w') as f:
         json.dump(tasks, f)
@@ -38,7 +35,6 @@ def load_tasks(filename):
     except FileNotFoundError:
         tasks = []
 
-# Main Menu Function
 def main_menu():
     load_tasks("tasks.json")
     while True:
@@ -78,6 +74,5 @@ def main_menu():
         else:
             print("Invalid choice. Please try again.")
 
-# Run the application
 if __name__ == "__main__":
     main_menu()
